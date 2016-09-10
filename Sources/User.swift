@@ -1,11 +1,11 @@
 import Foundation
 
-class User: CustomStringConvertible {
+public class User: CustomStringConvertible {
 
     private let user_id: Int
     private let first_name: String
 
-    var description:String {
+    public var description:String {
         return "User= id: \(self.user_id), first_name: \(self.first_name)"
     }
     
@@ -14,11 +14,11 @@ class User: CustomStringConvertible {
         self.first_name = name
     }
 
-    func name() -> String {
+    public func name() -> String {
         return self.first_name
     }
 
-    func id() -> Int {
+    public func id() -> Int {
         return self.user_id
     }
 }

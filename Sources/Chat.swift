@@ -1,5 +1,5 @@
 import Foundation
-class Chat: CustomStringConvertible {
+public class Chat: CustomStringConvertible {
     
     private let chat_id: Int
     private let chat_type: String
@@ -9,15 +9,15 @@ class Chat: CustomStringConvertible {
         self.chat_type = type
     }
 
-    var description: String {
+    public var description: String {
         return "Chat= id: \(self.chat_id), type: \(self.chat_type)"
     }
 
-    func id() -> Int {
+    public func id() -> Int {
         return self.chat_id
     }
 
-    func type() -> String {
+    public func type() -> String {
         return self.chat_type
     }
 }

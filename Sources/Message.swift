@@ -1,5 +1,5 @@
 import Foundation
-class Message: CustomStringConvertible {
+public class Message: CustomStringConvertible {
     
     private let message_id: Int
     private let from_user: User
@@ -15,27 +15,27 @@ class Message: CustomStringConvertible {
         self.message_text = text
     }
 
-    var description: String {
+    public var description: String {
         return "Message= id: \(self.message_id), user: \(self.from_user), chat: \(self.user_chat), date: \(self.message_date), text: \(self.message_text)"
     }
 
-    func id() -> Int {
+    public func id() -> Int {
         return self.message_id
     }
 
-    func user() -> User {
+    public func user() -> User {
         return self.from_user
     }
 
-    func chat() -> Chat {
+    public func chat() -> Chat {
         return self.user_chat
     }
 
-    func date() -> Int {
+    public func date() -> Int {
         return self.message_date
     }
 
-    func text() -> String {
+    public func text() -> String {
         return message_text
     }
 }

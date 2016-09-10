@@ -1,11 +1,11 @@
 import SwiftyJSON
 import Foundation
-class TelegramBot {
+public class TelegramBot {
 
     private let token: String
     private var response = ""
 
-    class func parseUpdate(string: String) -> Update? {
+    public class func parseUpdate(string: String) -> Update? {
         if let dataFromString = string.data(using: .utf8, allowLossyConversion: false) {
             let json = JSON(data: dataFromString)
             // check the update_id 
