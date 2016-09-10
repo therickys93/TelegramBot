@@ -1,0 +1,8 @@
+image: therickys93/ubuntu14swift
+
+pipelines:
+  default:
+    - step:
+        script:
+          - swift build
+          - swift test
