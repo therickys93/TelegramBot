@@ -3,10 +3,6 @@ import XCTest
 
 class UpdateTests: XCTestCase {
 
-    // User(id: 10, name: "therickys93")
-    // Chat(id: 10, type: "private")
-    // Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello")
-
     func testConstruct() {
         let _ = Update(id: 10, message: Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello"))
     }
