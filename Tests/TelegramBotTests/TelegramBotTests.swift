@@ -36,6 +36,16 @@ class TelegramBotTests: XCTestCase {
         XCTAssertEqual("therickys93", update?.message().user().name())
     }
 
+    func testTelegramBotConstruct() {
+        let _ = TelegramBot(token: "")
+    }
+
+    func testTelegramBotSendMessage() {
+        let bot = TelegramBot(token: "token")
+        let response = bot.sendMessage(id: 12345678, text: "hello")
+        XCTAssertEqual("method not implemented yet", response)
+    }
+
     static var allTests : [(String, (TelegramBotTests) -> () throws -> Void)] {
         return [
             ("testExample", testExample),
@@ -43,7 +53,9 @@ class TelegramBotTests: XCTestCase {
             ("testOne", testOne),
             ("testTwo", testTwo),
             ("testThree", testThree),
-            ("testFinal", testFinal)
+            ("testFinal", testFinal),
+            ("testTelegramBotConstruct", testTelegramBotConstruct),
+            ("testTelegramBotSendMessage", testTelegramBotSendMessage)
         ]
     }
 }
