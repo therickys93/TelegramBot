@@ -6,5 +6,6 @@ XCTMain([
      testCase(UserTests.allTests),
      testCase(ChatTests.allTests),
      testCase(MessageTests.allTests),
-     testCase(UpdateTests.allTests)
+     testCase(UpdateTests.allTests),
+     testCase(MakeRequestTests.allTests)
 ])

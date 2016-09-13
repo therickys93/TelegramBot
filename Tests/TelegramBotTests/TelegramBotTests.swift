@@ -41,9 +41,10 @@ class TelegramBotTests: XCTestCase {
     }
 
     func testTelegramBotSendMessage() {
+        // use it in the bot
+        // this version use the https://telegram-bot-api.herokuapp.com/api
         let bot = TelegramBot(token: "token")
-        let response = bot.sendMessage(id: 12345678, text: "hello")
-        XCTAssertEqual("method not implemented yet", response)
+        let _ = bot.sendMessage(id: 12345678, text: "hello")
     }
 
     static var allTests : [(String, (TelegramBotTests) -> () throws -> Void)] {

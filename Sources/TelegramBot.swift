@@ -39,31 +39,9 @@ public class TelegramBot {
     }
 
     func sendMessage(id: Int, text: String) -> String {
-        /* not already implemented for linux
-        var request = URLRequest(url: URL(string: "https://api.telegram.org/bot" + self.token + "/sendMessage")!)
-        request.httpMethod = "POST"
-        let postString = "chat_id=" + String(id) + "&text=" + text
-        request.httpBody = postString.data(using: .utf8)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print("error=\(error)")
-                return
-            }
-
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            }
-
-            if let responseString = String(data: data, encoding: .utf8) {
-                print("responseString = \(responseString)")
-                self.response = responseString
-            }
-        }
-        task.resume()
-        return self.response
-        */
-        return "method not implemented yet"
+        let request = MakeRequest()
+        let response = request.fetch("https://telegram-bot-api.herokuapp.com/api/" + self.token + "/" + String(id) + "/" + text)
+        return response.response
     }
 
 }
