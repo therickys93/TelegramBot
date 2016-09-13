@@ -40,7 +40,13 @@ public class TelegramBot {
 
     func sendMessage(id: Int, text: String) -> String {
         let request = MakeRequest()
-        let response = request.fetch("https://telegram-bot-api.herokuapp.com/api/" + self.token + "/" + String(id) + "/" + text)
+        let response = request.fetch("https://telegram-bot-api.herokuapp.com/sendMessage/" + self.token + "/" + String(id) + "/" + text)
+        return response.response
+    }
+
+    func getMe() -> String {
+        let request = MakeRequest()
+        let response = request.fetch("https://telegram-bot-api.herokuapp.com/getMe/" + self.token)
         return response.response
     }
 

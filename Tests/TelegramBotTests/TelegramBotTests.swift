@@ -47,6 +47,11 @@ class TelegramBotTests: XCTestCase {
         let _ = bot.sendMessage(id: 12345678, text: "hello")
     }
 
+    func testTelegramBotGetMe() {
+        let bot = TelegramBot(token: "token")
+        let _ = bot.getMe()
+    }
+
     static var allTests : [(String, (TelegramBotTests) -> () throws -> Void)] {
         return [
             ("testExample", testExample),
@@ -56,7 +61,8 @@ class TelegramBotTests: XCTestCase {
             ("testThree", testThree),
             ("testFinal", testFinal),
             ("testTelegramBotConstruct", testTelegramBotConstruct),
-            ("testTelegramBotSendMessage", testTelegramBotSendMessage)
+            ("testTelegramBotSendMessage", testTelegramBotSendMessage),
+            ("testTelegramBotGetMe", testTelegramBotGetMe)
         ]
     }
 }
