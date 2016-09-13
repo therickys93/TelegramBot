@@ -34,17 +34,17 @@ public class TelegramBot {
         return nil
     }
 
-    init(token: String) {
+    public init(token: String) {
         self.token = token
     }
 
-    func sendMessage(id: Int, text: String) -> String {
+    public func sendMessage(id: Int, text: String) -> String {
         let request = MakeRequest()
         let response = request.fetch("https://telegram-bot-api.herokuapp.com/sendMessage/" + self.token + "/" + String(id) + "/" + text)
         return response.response
     }
 
-    func getMe() -> String {
+    public func getMe() -> String {
         let request = MakeRequest()
         let response = request.fetch("https://telegram-bot-api.herokuapp.com/getMe/" + self.token)
         return response.response
