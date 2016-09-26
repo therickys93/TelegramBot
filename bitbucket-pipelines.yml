@@ -1,8 +1,10 @@
-image: therickys93/ubuntu14swift
+image: therickys93/ubuntu14swiftenv
 
 pipelines:
   default:
     - step:
         script:
+          - swiftenv install 3.0
+          - swiftenv global 3.0
           - swift build
           - swift test
