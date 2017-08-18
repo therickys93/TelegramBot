@@ -1,9 +1,11 @@
 import SwiftyJSON
 import Foundation
+import KituraRequest
 public class TelegramBot {
 
     private let token: String
     private var response = ""
+    private let endpoint = "https://api.telegram.org/bot"
 
     public class func parseUpdate(string: String) -> Update? {
         if let dataFromString = string.data(using: .utf8, allowLossyConversion: false) {
@@ -37,18 +39,39 @@ public class TelegramBot {
     public init(token: String) {
         self.token = token
     }
-
+    
     public func sendMessage(id: Int, text: String) -> String {
-//        let request = MakeRequest()
-//        let response = request.fetch("https://telegram-bot-api.herokuapp.com/sendMessage/" + self.token + "/" + String(id) + "/" + text)
-        return "not implemented"
+        let parameters = ["chat_id":id, "text": text] as [String : Any]
+        KituraRequest.request(
+            .post,
+            createUrlForRequest("sendMessage"),
+            parameters: parameters,
+            encoding: URLEncoding.default,
+            headers: nil,
+            disableSSLVerification: true
+        ).response { (request, response, data, error) in
+            if let newData = data {
+                self.createResponse(newData)
+            }
+        }
+        return response
+    }
+    
+    private func createUrlForRequest(_ request: String) -> String {
+        return self.endpoint.appendingFormat("%@/%@", self.token, request)
+    }
+    
+    private func createResponse(_ data: Data) {
+        response = String(data: data, encoding: String.Encoding.utf8) ?? ""
     }
 
     public func getMe() -> String {
-//        let request = MakeRequest()
-//        let response = request.fetch("https://telegram-bot-api.herokuapp.com/getMe/" + self.token)
-//        return response.response
-        return "not implemented"
+        KituraRequest.request(.post, createUrlForRequest("getMe")).response { (request, response, data, error) in
+            if let newData = data {
+                self.createResponse(newData)
+            }
+        }
+        return response
     }
 
 }
