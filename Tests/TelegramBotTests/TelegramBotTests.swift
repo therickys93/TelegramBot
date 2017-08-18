@@ -39,6 +39,14 @@ class TelegramBotTests: XCTestCase {
     func testTelegramBotConstruct() {
         let _ = TelegramBot(token: "")
     }
+    
+    func testTelegramBotCreationOfUrl() {
+        let bot = TelegramBot(token: "my-token")
+        let getMe = bot.createUrlForRequest("getMe")
+        XCTAssertEqual(getMe, "https://api.telegram.org/botmy-token/getMe")
+        let sendMessage = bot.createUrlForRequest("sendMessage")
+        XCTAssertEqual(sendMessage, "https://api.telegram.org/botmy-token/sendMessage")
+    }
 
     func telegramBotSendMessage() {
         let bot = TelegramBot(token: "token")
@@ -72,6 +80,7 @@ class TelegramBotTests: XCTestCase {
             ("testThree", testThree),
             ("testFinal", testFinal),
             ("testTelegramBotConstruct", testTelegramBotConstruct),
+            ("testTelegramBotCreationOfUrl", testTelegramBotCreationOfUrl),
         ]
     }
 }

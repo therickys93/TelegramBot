@@ -57,8 +57,8 @@ public class TelegramBot {
         return response
     }
     
-    private func createUrlForRequest(_ request: String) -> String {
-        return self.endpoint + token + request
+    func createUrlForRequest(_ request: String) -> String {
+        return self.endpoint + token + "/" + request
     }
     
     private func createResponse(_ data: Data) {
