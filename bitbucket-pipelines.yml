@@ -4,6 +4,7 @@ pipelines:
   default:
     - step:
         script:
+          - apt-get install -y software-properties-common python-software-properties apt-transport-https
           - swiftenv install 3.1
           - swiftenv global 3.1
           - swift build
