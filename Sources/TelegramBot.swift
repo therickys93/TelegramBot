@@ -58,7 +58,7 @@ public class TelegramBot {
     }
     
     private func createUrlForRequest(_ request: String) -> String {
-        return self.endpoint.appendingFormat("%@/%@", token, request)
+        return self.endpoint + token + request
     }
     
     private func createResponse(_ data: Data) {
