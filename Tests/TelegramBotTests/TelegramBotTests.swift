@@ -41,8 +41,6 @@ class TelegramBotTests: XCTestCase {
     }
 
     func testTelegramBotSendMessage() {
-        // use it in the bot
-        // this version use the https://telegram-bot-api.herokuapp.com/api
         let bot = TelegramBot(token: "token")
         let _ = bot.sendMessage(id: 12345678, text: "hello")
     }

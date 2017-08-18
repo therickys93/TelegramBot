@@ -8,7 +8,7 @@ public class TelegramBot {
     public class func parseUpdate(string: String) -> Update? {
         if let dataFromString = string.data(using: .utf8, allowLossyConversion: false) {
             let json = JSON(data: dataFromString)
-            // check the update_id 
+            // check the update_id
             if let update_id = json["update_id"].int {
                 // check the message
                 if let message_id = json["message"]["message_id"].int {
@@ -39,15 +39,16 @@ public class TelegramBot {
     }
 
     public func sendMessage(id: Int, text: String) -> String {
-        let request = MakeRequest()
-        let response = request.fetch("https://telegram-bot-api.herokuapp.com/sendMessage/" + self.token + "/" + String(id) + "/" + text)
-        return response.response
+//        let request = MakeRequest()
+//        let response = request.fetch("https://telegram-bot-api.herokuapp.com/sendMessage/" + self.token + "/" + String(id) + "/" + text)
+        return "not implemented"
     }
 
     public func getMe() -> String {
-        let request = MakeRequest()
-        let response = request.fetch("https://telegram-bot-api.herokuapp.com/getMe/" + self.token)
-        return response.response
+//        let request = MakeRequest()
+//        let response = request.fetch("https://telegram-bot-api.herokuapp.com/getMe/" + self.token)
+//        return response.response
+        return "not implemented"
     }
 
 }
