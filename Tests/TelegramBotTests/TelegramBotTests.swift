@@ -61,8 +61,11 @@ class TelegramBotTests: XCTestCase {
     }
     
     func telegramInTodo() {
+        guard let token = Utils.tokenForKey("TELEGRAM_TOKEN") else {
+            return
+        }
         let update = TelegramBot.parseUpdate(string: json)
-        let bot = TelegramBot(token: "token")
+        let bot = TelegramBot(token: token)
         if let chat_id = update?.message().chat().id() {
             if let text = update?.message().text() {
                 let response = bot.sendMessage(id: chat_id, text: text)
