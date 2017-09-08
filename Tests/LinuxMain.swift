@@ -8,4 +8,5 @@ XCTMain([
      testCase(MessageTests.allTests),
      testCase(UpdateTests.allTests),
      testCase(CommandParserTests.allTests),
+     testCase(ContactTests.allTests),
 ])
