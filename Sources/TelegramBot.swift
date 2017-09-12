@@ -48,6 +48,23 @@ public class TelegramBot {
         self.token = token
     }
     
+    public func sendContact(id: Int, name: String, telephone: String) -> String {
+        let parameters = ["chat_id": id, "first_name": name, "phone_number": telephone] as [String : Any]
+        KituraRequest.request(
+            .post,
+            createUrlForRequest("sendContact"),
+            parameters: parameters,
+            encoding: URLEncoding.default,
+            headers: nil,
+            disableSSLVerification: true
+        ).response { (request, response, data, error) in
+            if let newData = data {
+                self.createResponse(newData)
+            }
+        }
+        return response
+    }
+    
     public func sendMessage(id: Int, text: String) -> String {
         let parameters = ["chat_id":id, "text": text] as [String : Any]
         KituraRequest.request(
