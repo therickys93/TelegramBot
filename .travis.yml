@@ -1,12 +1,20 @@
 os:
-  - linux
-  - osx
+- linux
 language: generic
 sudo: required
 dist: trusty
-osx_image: xcode8.3
 install:
-  - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
+- eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
 script:
-  - swift build
-  - swift test
+- swift build
+- swift test
+after_success:
+- sh set_tags.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: o9zrFQ+l3D7XuGiFihm7BPaWiDVg0jYbYLoXuqZE3ySjc+/Wuo26Uf/tfDAXmodBarpWJzMjrWRF0PIDORZgyVTs9nXUFogIhO5q3v+/YrA1GgyyElSpuLtH3pzb9BRqDdZd359z3SyOFJgdQ3MI2DgA3lp9JBjhKaG17CGBzq4yU42dYDR2FJu20RdWMMHVIdyB/n47exZpncpvZ+lrO2bRFatmh4YMmBVyVGHK+iSTlLrC0RBGu3ba6LZhg9c1n9z3/VPT4HRNFKA3enphT81XxCr0n+Uq9+Hz3hAEFHp7vTz6P6G821WX+CrhWwfiynu93/QAgtLJvw3161h56h5OC2ujLmoA7CdEk+SqlMxXzkqxPzPCLlrcxw9b0gMIGv7rtJvSfQPLBrJhGco5LZan6Fsb/5azFo6JwMKsckMPi/aHIeY98uGACiYDYURzAOKT2RsE3BxqyYCReXyEZ9aXB0f6TplC4buLGxkqYlYZklkTziL/q2rsLfjZzPpDh3Ibg+CKVKbKx79IOPIAkkmmu6Xy2Dpkb5/cpBugv1jfg+PKoA89gRXiXG83zcNO+0iYkbGmbNF/TiwKGTSJRmFuxzWWAXqUY85MWpK7V3Wx+eL86+97KG+SANTEWQINF3K6SVL4RxmaePD93lFNMWuGgi2lrJ0xrACMn1hDyVM=
+  file: ''
+  on:
+    repo: therickys93/TelegramBot
+    branch: master
