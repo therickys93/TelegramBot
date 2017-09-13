@@ -48,38 +48,18 @@ public class TelegramBot {
         self.token = token
     }
     
+    public func sendContact(id: Int, contact: Contact) -> String {
+        return sendContact(id: id, name: contact.name(), telephone: contact.telephone())
+    }
+    
     public func sendContact(id: Int, name: String, telephone: String) -> String {
         let parameters = ["chat_id": id, "first_name": name, "phone_number": telephone] as [String : Any]
-        KituraRequest.request(
-            .post,
-            createUrlForRequest("sendContact"),
-            parameters: parameters,
-            encoding: URLEncoding.default,
-            headers: nil,
-            disableSSLVerification: true
-        ).response { (request, response, data, error) in
-            if let newData = data {
-                self.createResponse(newData)
-            }
-        }
-        return response
+        return makeApiRequest(request: "sendContact", parameters: parameters)
     }
     
     public func sendMessage(id: Int, text: String) -> String {
         let parameters = ["chat_id":id, "text": text] as [String : Any]
-        KituraRequest.request(
-            .post,
-            createUrlForRequest("sendMessage"),
-            parameters: parameters,
-            encoding: URLEncoding.default,
-            headers: nil,
-            disableSSLVerification: true
-        ).response { (request, response, data, error) in
-            if let newData = data {
-                self.createResponse(newData)
-            }
-        }
-        return response
+        return makeApiRequest(request: "sendMessage", parameters: parameters)
     }
     
     func createUrlForRequest(_ request: String) -> String {
@@ -91,7 +71,17 @@ public class TelegramBot {
     }
 
     public func getMe() -> String {
-        KituraRequest.request(.post, createUrlForRequest("getMe")).response { (request, response, data, error) in
+        return makeApiRequest(request: "getMe", parameters: nil)
+    }
+    
+    private func makeApiRequest(request: String, parameters: [String : Any]?) -> String {
+        KituraRequest.request(.post,
+                              createUrlForRequest(request),
+                              parameters: parameters,
+                              encoding: URLEncoding.default,
+                              headers: nil,
+                              disableSSLVerification: true
+        ).response { (request, response, data, error) in
             if let newData = data {
                 self.createResponse(newData)
             }
