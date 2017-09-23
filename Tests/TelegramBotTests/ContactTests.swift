@@ -14,12 +14,12 @@ class ContactTests: XCTestCase {
     
     func testName() {
         let contact = Contact(name: "Riccardo", telephone: "1234567890")
-        XCTAssertEqual("Riccardo", contact.name())
+        XCTAssertEqual("Riccardo", contact.name)
     }
     
     func testType() {
         let contact = Contact(name: "Riccardo", telephone: "1234567890")
-        XCTAssertEqual("1234567890", contact.telephone())
+        XCTAssertEqual("1234567890", contact.telephone)
     }
     
     static var allTests : [(String, (ContactTests) -> () throws -> Void)] {

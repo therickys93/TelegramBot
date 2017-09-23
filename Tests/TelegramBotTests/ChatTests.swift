@@ -14,12 +14,12 @@ class ChatTests: XCTestCase {
 
     func testId() {
         let chat = Chat(id: 10, type: "private")
-        XCTAssertEqual(10, chat.id())
+        XCTAssertEqual(10, chat.id)
     }
 
     func testType() {
         let chat = Chat(id: 10, type: "private")
-        XCTAssertEqual("private", chat.type())
+        XCTAssertEqual("private", chat.type)
     }
 
     static var allTests : [(String, (ChatTests) -> () throws -> Void)] {

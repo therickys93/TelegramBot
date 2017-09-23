@@ -49,7 +49,7 @@ public class TelegramBot {
     }
     
     public func sendContact(id: Int, contact: Contact) -> String {
-        return sendContact(id: id, name: contact.name(), telephone: contact.telephone())
+        return sendContact(id: id, name: contact.name, telephone: contact.telephone)
     }
     
     public func sendContact(id: Int, name: String, telephone: String) -> String {

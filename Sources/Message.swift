@@ -20,28 +20,28 @@ public class Message: CustomStringConvertible {
     public var description: String {
         return "Message= id: \(self.message_id), user: \(self.from_user), chat: \(self.user_chat), date: \(self.message_date), text: \(self.message_text ?? "nil")"
     }
-
-    public func id() -> Int {
+    
+    public var id: Int {
         return self.message_id
     }
 
-    public func user() -> User {
+    public var user: User {
         return self.from_user
     }
-
-    public func chat() -> Chat {
+    
+    public var chat: Chat {
         return self.user_chat
     }
-
-    public func date() -> Int {
+    
+    public var date: Int {
         return self.message_date
     }
     
-    public func contact() -> Contact? {
+    public var contact: Contact? {
         return self._contact
     }
-
-    public func text() -> String? {
-        return message_text ?? nil
+    
+    public var text: String? {
+        return self.message_text
     }
 }

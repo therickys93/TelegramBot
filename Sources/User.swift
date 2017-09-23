@@ -13,12 +13,12 @@ public class User: CustomStringConvertible {
         self.user_id = id
         self.first_name = name
     }
-
-    public func name() -> String {
+    
+    public var name: String {
         return self.first_name
     }
-
-    public func id() -> Int {
+    
+    public var id: Int {
         return self.user_id
     }
 }

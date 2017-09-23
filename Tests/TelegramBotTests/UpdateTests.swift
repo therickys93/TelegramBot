@@ -14,12 +14,12 @@ class UpdateTests: XCTestCase {
 
     func testId() {
         let update = Update(id: 10, message: Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil))
-        XCTAssertEqual(10, update.id())
+        XCTAssertEqual(10, update.id)
     }
 
     func testMessage() {
         let update = Update(id: 10, message: Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil))
-        XCTAssertEqual(Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil).description, update.message().description)
+        XCTAssertEqual(Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil).description, update.message.description)
     }
 
     static var allTests : [(String, (UpdateTests) -> () throws -> Void)] {

@@ -17,25 +17,25 @@ class MessageTests: XCTestCase {
 
     func testId() {
         let message = Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil)
-        XCTAssertEqual(10, message.id())
+        XCTAssertEqual(10, message.id)
     }
     func testUser() {
         let message = Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil)
-        XCTAssertEqual(User(id: 10, name: "therickys93").description, message.user().description)
+        XCTAssertEqual(User(id: 10, name: "therickys93").description, message.user.description)
     }
     func testChat() {
         let message = Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil)
-        XCTAssertEqual(Chat(id: 10, type: "private").description, message.chat().description)
+        XCTAssertEqual(Chat(id: 10, type: "private").description, message.chat.description)
     }
     
     func testDate() {
        let message = Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil)
-       XCTAssertEqual(12345678, message.date()) 
+       XCTAssertEqual(12345678, message.date)
     }
     
     func testText() {
         let message = Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 10, type: "private"), date: 12345678, text: "hello", contact: nil)
-        XCTAssertEqual("hello", message.text())
+        XCTAssertEqual("hello", message.text)
     }
     
     static var allTests : [(String, (MessageTests) -> () throws -> Void)] {

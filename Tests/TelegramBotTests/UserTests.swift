@@ -13,12 +13,12 @@ class UserTests: XCTestCase {
 
     func testName() {
         let user = User(id: 10, name: "therickys93")
-        XCTAssertEqual("therickys93", user.name())
+        XCTAssertEqual("therickys93", user.name)
     }
 
     func testId() {
         let user = User(id: 10, name: "therickys93")
-        XCTAssertEqual(10, user.id())
+        XCTAssertEqual(10, user.id)
     }
 
     static var allTests : [(String, (UserTests) -> () throws -> Void)] {

@@ -12,12 +12,12 @@ public class Chat: CustomStringConvertible {
     public var description: String {
         return "Chat= id: \(self.chat_id), type: \(self.chat_type)"
     }
-
-    public func id() -> Int {
+    
+    public var id: Int {
         return self.chat_id
     }
-
-    public func type() -> String {
+    
+    public var type: String {
         return self.chat_type
     }
 }

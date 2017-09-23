@@ -12,13 +12,12 @@ public class Update: CustomStringConvertible {
     public var description: String {
         return "Update= id: \(self.update_id), message: \(self.update_message)"
     }
-
-    public func id() -> Int {
+    
+    public var id: Int {
         return self.update_id
     }
 
-    public func message() -> Message {
+    public var message: Message {
         return self.update_message
     }
-
 }

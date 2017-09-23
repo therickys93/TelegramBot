@@ -22,33 +22,33 @@ class TelegramBotTests: XCTestCase {
 
     func testTwo() {
         let update = TelegramBot.parseUpdate(string: json)
-        XCTAssertEqual(10, update?.id())
+        XCTAssertEqual(10, update?.id)
     }
 
     func testThree() {
         let update = TelegramBot.parseUpdate(string: json)
         let message = Message(id: 10, user: User(id: 10, name: "therickys93"), chat: Chat(id: 12345678, type: "private"), date: 12345678, text: "hello", contact: nil)
-        XCTAssertEqual(message.description, update?.message().description)
+        XCTAssertEqual(message.description, update?.message.description)
     }
 
     func testFinal() {
         let update = TelegramBot.parseUpdate(string: json)
-        XCTAssertEqual(12345678, update?.message().chat().id())
-        XCTAssertEqual("hello", update?.message().text())
-        XCTAssertEqual("therickys93", update?.message().user().name())
+        XCTAssertEqual(12345678, update?.message.chat.id)
+        XCTAssertEqual("hello", update?.message.text)
+        XCTAssertEqual("therickys93", update?.message.user.name)
     }
     
     func testWithContact() {
         let update = TelegramBot.parseUpdate(string: jsonWithContact)
-        XCTAssertEqual(12345678, update?.message().chat().id())
-        XCTAssertNil(update?.message().text())
+        XCTAssertEqual(12345678, update?.message.chat.id)
+        XCTAssertNil(update?.message.text)
     }
     
     func testGetContactInfo() {
         let update = TelegramBot.parseUpdate(string: jsonWithContact)
-        XCTAssertEqual(12345678, update?.message().chat().id())
-        XCTAssertEqual("best friend", update?.message().contact()?.name())
-        XCTAssertEqual("+391234567890", update?.message().contact()?.telephone())
+        XCTAssertEqual(12345678, update?.message.chat.id)
+        XCTAssertEqual("best friend", update?.message.contact?.name)
+        XCTAssertEqual("+391234567890", update?.message.contact?.telephone)
     }
 
     func testTelegramBotConstruct() {
@@ -81,8 +81,8 @@ class TelegramBotTests: XCTestCase {
         }
         let update = TelegramBot.parseUpdate(string: json)
         let bot = TelegramBot(token: token)
-        if let chat_id = update?.message().chat().id() {
-            if let text = update?.message().text() {
+        if let chat_id = update?.message.chat.id {
+            if let text = update?.message.text {
                 let response = bot.sendMessage(id: chat_id, text: text)
                 XCTAssertNotNil(response)
             }

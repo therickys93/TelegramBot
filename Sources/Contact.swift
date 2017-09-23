@@ -12,12 +12,11 @@ public class Contact: CustomStringConvertible {
         self._telephone = telephone
     }
     
-    public func name() -> String {
+    public var name: String {
         return self._name
     }
     
-    public func telephone() -> String {
+    public var telephone: String {
         return self._telephone
     }
-    
 }
